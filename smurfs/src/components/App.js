@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import { SmurfContext } from '../contexts'
 import axios from 'axios'
-
+import Smurf from './Smurf'
+import SmurfForm from './SmurfForms'
 
 function App() {
   const initialState = {
@@ -10,24 +11,28 @@ function App() {
     name: '',
     id: 0,
     age: 0,
-    heoght: ''
+    height: '',
+    edited: 0
   }
   const [state, changeState] = React.useState(initialState)
   React.useEffect(() => {
     axios
       .get(
-        'localhost:3333/smurfs'
+        'http://localhost:3333/smurfs'
       )
-      .then(res => console.log(res))
+      .then(res => changeState({
+        ...state,
+        list: res.data
+      }))
       .catch(err => console.log(err));
-  }, []);
+  }, [state.edited]);
+  console.log(state)
   return (
     <SmurfContext.Provider value={{ state, changeState }}>
       <div className="App">
         <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
+        <SmurfForm />
+        {state.list.map(e => { return <Smurf key={e.id} item={e} /> })}
       </div>
     </SmurfContext.Provider>
   );
