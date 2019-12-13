@@ -23,10 +23,26 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+   
+    allows all state to be called into a component without needing to be passed through intervening components
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+    Actions: take the place of the dispatch function you would normally use with useReducer()
+    Reducers: give you more control over state by containing all state and the things that affect it, this makes state more predictable
+    Store: the store contains reducers and all middleware, as such it holds all of the information that your app needs and the keys to the manipulation of that state, it then passes all of this to any component that asks for it through the <provider> tag
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+    application state can be thought of as 'global' this should be used when multiple components may need access to a given peice of state.
+    component state is state that can be accessed by one component. a good use case for this would be holding the value of input fields in forms
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+    redux thunk allows us to intercept an action on the way to the reducer and change its behavior adding, removing or leaving the action unchanged. this allows us to track what actions are doing and adds async capabilities to our actions
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+    context api when used with reducers seems to be a great way of handling almost any amount of state, its ease of use and versatility makes it my favorite.
 
 ## Project Set Up
 
