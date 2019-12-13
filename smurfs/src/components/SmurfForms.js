@@ -54,19 +54,27 @@ function SmurfForms() {
     return (
         <div>
             <form name='add' onSubmit={handleAdd}>
+                <span>Name:</span>
                 <input name='name' value={state.name} onChange={handleChange} type='text'></input>
+                <span>Age:</span>
                 <input name='age' value={state.age} onChange={handleChange} type='text'></input>
+                <span>Height:</span>
                 <input name='height' value={state.height} onChange={handleChange} type='text'></input>
                 <button type='submit'>Add To Village</button>
             </form>
             <form name='alter' onSubmit={handleAlter}>
+                <span>Name:</span>
                 <input name='name' value={state.name} onChange={handleChange} type='text'></input>
+                <span>Age:</span>
                 <input name='age' value={state.age} onChange={handleChange} type='text'></input>
+                <span>Height:</span>
                 <input name='height' value={state.height} onChange={handleChange} type='text'></input>
+                <span>ID:</span>
                 <input name='id' value={state.id} onChange={handleChange} type='text'></input>
                 <button type='submit'>Alter Smurf by ID</button>
             </form>
             <form name='delete' onSubmit={handleRemove}>
+                <span>ID:</span>
                 <input name='id' value={state.id} onChange={handleChange} type='text'></input>
                 <button type='submit'>KIA by ID</button>
             </form>
